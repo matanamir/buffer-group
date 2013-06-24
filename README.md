@@ -16,8 +16,8 @@ var BufferGroup = require('buffer-group'),
 Add buffers to the group:
 
 ```js
-    bg.push(new Buffer(10));    // bg.length === 10
-    bg.push(new Buffer(5));     // bg.length === 15
+bg.push(new Buffer(10));    // bg.length === 10
+bg.push(new Buffer(5));     // bg.length === 15
 ```
 
 As you add Buffers to the group, the BufferGroup length grows accordingly to account for all the buffers in it.
@@ -25,9 +25,9 @@ As you add Buffers to the group, the BufferGroup length grows accordingly to acc
 You can then extract a fixed size of data from the group:
 
 ```js
-    var eb = bg.extract(12); // Extract 12 bytes from the BufferGroup.
-    // eb.length === 12
-    // bg.length === 3
+var eb = bg.extract(12); // Extract 12 bytes from the BufferGroup.
+// eb.length === 12
+// bg.length === 3
 ```
 
 Note that the BufferGroup will remove the number of bytes requested and keep any existing data there.

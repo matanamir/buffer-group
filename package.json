@@ -1,0 +1,28 @@
+{
+    "name": "buffer-group",
+    "version": "0.0.1",
+    "author": "Matan Amir <github-contrib@ematan.com> (http://www.n0tw0rthy.com)",
+    "description": "Group Node.js Buffers together and extract the parts you need.",
+    "main": "index.js",
+    "dependencies": {
+        "offset-buffer": "*"
+    },
+    "devDependencies": {
+        "tap": "*"
+    },
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/matanamir/buffer-group/raw/master/LICENSE"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:matanamir/buffer-group.git"
+    },
+    "scripts": {
+        "test": "node test/buffer-group-test.js"
+    },
+    "keywords": [
+        "group",
+        "buffer"
+    ]
+}

@@ -1,5 +1,7 @@
 # buffer-group
 
+[![Build Status](https://travis-ci.org/matanamir/buffer-group.png)](https://travis-ci.org/matanamir/buffer-group)
+
 Group Node.js Buffers together and extract the parts you need.  This is useful, for example, when
 dealing with framing data and the frame size isn't known in advance.
 

@@ -1,0 +1,25 @@
+var test = require('tap').test,
+    OffsetBuffer = require('offset-buffer'),
+    BufferGroup = require('../buffer-group.js')(OffsetBuffer, console);
+
+process.on('uncaughtException', function(err) {
+    console.log('Uncaught exception: ' + err);
+    process.exit(-1);
+});
+
+var i, m = 50000,
+    time_start = Date.now(),
+    duration,
+    group = new BufferGroup(),
+    extract1, extract2;
+
+for (i = 0; i < m; i++) {
+    group.push(new Buffer([0x01, 0x02, 0x03]));
+    group.push(new Buffer([0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d]));
+    group.push(new Buffer([0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x18, 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x18, 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x18]));
+    extract1 = group.extract(4);
+    extract2 = group.extract(group.length);
+}
+duration = Date.now() - time_start;
+console.log('BufferGroup.extract(): ' + (m / (duration / 1000)).toFixed(2) + ' ops/sec');
+

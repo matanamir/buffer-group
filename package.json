@@ -1,6 +1,6 @@
 {
     "name": "buffer-group",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Matan Amir <github-contrib@ematan.com> (http://www.n0tw0rthy.com)",
     "description": "Group Node.js Buffers together and extract the parts you need.",
     "main": "index.js",

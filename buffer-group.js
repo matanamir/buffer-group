@@ -50,9 +50,12 @@ module.exports = function(OffsetBuffer, logger) {
         var extract_buffer = new OffsetBuffer(size),
             new_group = [],
             new_length = 0,
-            size_left = size;
+            size_left = size,
+            i, len,
+            buf;
 
-        this.group.forEach(function(buf) {
+        for (i = 0, len = this.group.length; i < len; i++) {
+            buf = this.group[i];
             if (size_left > 0) {
                 if (buf.length > size_left) {
                     extract_buffer.copyFrom(buf.slice(0, size_left));
@@ -67,7 +70,7 @@ module.exports = function(OffsetBuffer, logger) {
                 new_group.push(buf);
                 new_length += buf.length;
             }
-        });
+        }
         this.group = new_group;
         this.length = new_length;
         return extract_buffer;
